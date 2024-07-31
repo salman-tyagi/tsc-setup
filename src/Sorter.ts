@@ -1,13 +1,19 @@
-import { NumberCollection } from './NumberCollection';
+interface Sortable {
+  length: number;
+  compare(leftIndex: number, rightIndex: number): boolean;
+  swap(leftIndex: number, rightIndex: number): void;
+}
 
-export class Sorter {
-  constructor(public collection: NumberCollection) {}
+export abstract class Sorter {
+  abstract compare(leftIndex: number, rightIndex: number): boolean;
+  abstract swap(leftIndex: number, rightIndex: number): void;
+  abstract length: number;
 
   sort(): void {
-    for (let i = 0; i < this.collection.length; i++) {
-      for (let j = i + 1; j < this.collection.length; j++) {
-        if (this.collection.compare(i, j)) {
-          this.collection.swap(i, j);
+    for (let i = 0; i < this.length; i++) {
+      for (let j = i + 1; j < this.length; j++) {
+        if (this.compare(i, j)) {
+          this.swap(i, j);
         }
       }
     }
