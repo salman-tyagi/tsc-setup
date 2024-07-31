@@ -1,8 +1,20 @@
-import { NumberCollection } from './NumberCollection';
-import { Sorter } from './Sorter';
+import { NumbersCollection } from './NumbersCollection';
+import { CharactersCollection } from './CharactersCollection';
+import { LinkedList } from './LinkedList';
 
-const numberCollection = new NumberCollection([4, 3, -8, 7]);
-const sort = new Sorter(numberCollection);
+const numberCollection = new NumbersCollection([3, 2, -5, 4]);
+numberCollection.sort();
+console.log(numberCollection.data);
 
-sort.sort();
-console.log(numberCollection.data, `length: ${numberCollection.length}`);
+const charactersCollection = new CharactersCollection('apple');
+charactersCollection.sort();
+console.log(charactersCollection.data);
+
+const linkedList = new LinkedList();
+linkedList.add(4);
+linkedList.add(5);
+linkedList.add(-2);
+linkedList.add(0);
+
+linkedList.sort();
+linkedList.print();
